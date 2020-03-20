@@ -408,7 +408,7 @@ map.on('style.load', function() {
     type: 'line',
     source: 'highlight-feature',
     paint: {
-      'line-width': 4,
+      'line-width': 10,
       'line-opacity': 0.9,
       'line-color': 'white',
         }
