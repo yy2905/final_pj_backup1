@@ -408,8 +408,7 @@ map.on('style.load', function() {
     type: 'line',
     source: 'highlight-feature',
     paint: {
-      'line-width': 10,
-      'line-opacity': 0.9,
+      'line-width': 7,
       'line-color': 'white',
         }
   });
