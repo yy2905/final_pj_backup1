@@ -2,9 +2,9 @@
 // the base style includes data provided by mapbox, this links the requests to my account
 mapboxgl.accessToken = 'pk.eyJ1IjoiY3dob25nLXFyaSIsImEiOiJjazZncWRkZGowb3kyM25vZXkwbms2cW0xIn0.lbwola6y7YDdaKLMdjif1g';
 
-// set central points and z-level 
+// set central points and z-level
 var initialCenterPoint = [105.3414953, 37.1341374]
-var initialZoom = 3.4
+var initialZoom = 3
 
 // a helper function for Lookup for looking up all the provinces and their status quo
 var nameLookup = (code) => {
@@ -12,7 +12,7 @@ var nameLookup = (code) => {
      //>10,000
     case 1:
       return {
-        color: '#8B3626', 
+        color: '#8B3626',
         description: 'Hubei',
       };
      //1,000-9,999
@@ -25,17 +25,17 @@ var nameLookup = (code) => {
       return {
         color: '#CD4F39',
         description:'Zhejiang',
-      };  
+      };
     case 4:
       return {
         color: '#CD4F39',
         description:'Hunan',
-      };  
+      };
     case 5:
       return {
         color: '#CD4F39',
         description:'Henan',
-      };  
+      };
      //500-999
     case 6:
       return {
@@ -46,99 +46,99 @@ var nameLookup = (code) => {
       return {
         color: '#EE5C42',
         description:'Anhui',
-      };  
+      };
     case 8:
       return {
         color: '#EE5C42',
         description:'Sichuan',
-      };  
+      };
     case 9:
       return {
         color: '#EE5C42',
         description:'Jiangxi',
-      };  
+      };
     case 10:
       return {
         color: '#EE5C42',
         description:'Chongqing',
-      }; 
+      };
     case 11:
       return {
         color: '#EE5C42',
         description:'Jiangsu',
-      };  
-     
+      };
+
       //100-499
     case 12:
       return {
         color: '#FF6347',
         description: 'Beijing',
-      };  
+      };
     case 13:
       return {
-        color: '#FF6347', 
+        color: '#FF6347',
         description: 'Heilongjiang',
-       }; 
+       };
     case 14:
       return {
-        color: '#FF6347', 
+        color: '#FF6347',
         description:'Guangxi',
-       }; 
+       };
     case 15:
       return {
-        color: '#FF6347', 
+        color: '#FF6347',
         description:'Fujian',
-       }; 
+       };
     case 16:
       return {
-        color: '#FF6347', 
+        color: '#FF6347',
         description:'Shanghai',
       };
     case 17:
       return {
-        color: '#FF6347', 
+        color: '#FF6347',
         description:'Hebei',
       };
     case 18:
       return {
-        color: '#FF6347', 
+        color: '#FF6347',
         description:'Shaanxi',
-      }; 
+      };
     case 19:
       return {
         color: '#FF6347',
         description:'Tianjin',
-      };    
- 
+      };
+
     case 20:
       return {
         color: '#FF6347',
         description:'Guizhou',
-      };   
+      };
     case 21:
       return {
         color: '#FF6347',
         description:'Hainan',
-      };  
+      };
     case 22:
       return {
         color: '#FF6347',
         description:'Liaoning',
-      };  
+      };
     case 23:
       return {
         color: '#FF6347',
         description:'Shanxi',
-      };  
+      };
    case 24:
       return {
         color: '#FF6347',
         description:'Yunnan',
       };
-  
-     //10-99 
-      
- 
+
+     //10-99
+
+
     case 25:
       return {
         color: '#fed0c8',
@@ -148,12 +148,12 @@ var nameLookup = (code) => {
       return {
         color: '#fed0c8',
         description:'Xinjiang',
-      };  
+      };
     case 27:
       return {
         color: '#fed0c8',
         description:'Inner Mongolia',
-      };  
+      };
     case 28:
       return {
         color: '#fed0c8',
@@ -163,29 +163,29 @@ var nameLookup = (code) => {
       return {
         color: '#fed0c8',
         description: 'Taiwan',
-      };  
+      };
     case 30:
       return {
         color: '#fed0c8',
         description:'Gansu',
-      };  
+      };
     case 31:
       return {
         color: '#fed0c8',
         description: 'Ningxia',
-      };  
+      };
     case 32:
       return {
         color: '#fed0c8',
         description:'Macau',
-      };   
+      };
     case 33:
       return {
         color: '#fed0c8',
         description:'Qinghai',
-      };   
-      
-     //1 
+      };
+
+     //1
     case 34:
       return {
         color: '#fffbfa',
@@ -223,7 +223,7 @@ map.on('style.load', function() {
     type: 'geojson',
     data: './china.geojson',
   });
- 
+
   // let's make sure the source got added by logging the current map state to the console
   console.log(map.getStyle().sources)
 
@@ -368,7 +368,7 @@ map.on('style.load', function() {
           [
             'Qinghai',
             nameLookup(33).color,
-          ],   
+          ],
           [
             'Tibet',
             nameLookup(34).color,
@@ -377,7 +377,7 @@ map.on('style.load', function() {
       }
     }
   });
-  
+
     // add a layer for provincal borders
     map.addLayer({
       id:'line-map-province',
@@ -402,17 +402,17 @@ map.on('style.load', function() {
       features: []
     }
   });
-  
+
   map.addLayer({
     id: 'highlight-line',
     type: 'line',
     source: 'highlight-feature',
     paint: {
-      'line-width': 7,
-      'line-color': 'white',
+      'line-width': 6,
+      'line-color': 'lightblue',
         }
   });
-  
+
   // listen for the mouse moving over the map and react when the cursor is over our data
 
   map.on('mousemove', function (e) {
